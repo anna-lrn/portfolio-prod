@@ -225,6 +225,11 @@ h3 {
     z-index: 10;
     display: flex;
     justify-content: space-between;
+    background-color: transparent;
+}
+
+.navbar-scrolled{
+    background-color: #EBEAE5 !important;
 }
 
 #menu {
@@ -424,6 +429,7 @@ h3 {
     flex-direction: row;
     gap: 8px;
     position: relative;
+    align-items: center;
 }
 
 #apropos>.part1 {
@@ -662,19 +668,9 @@ hr {
     body {
         justify-content: flex-start;
         gap: 32px;
-        padding: 0px 10% 80px 10%;
+        padding: 0px 10%;
         font-size: 14px;
-    }
-
-    /*Home*/
-
-    #canvas-container,
-    #p5 {
-        display: none;
-    }
-
-    #hero {
-        height: fit-content;
+        margin: 0px;
     }
 
     h1 {
@@ -682,8 +678,28 @@ hr {
         font-weight: 700 !important;
     }
 
-    #nav {
-        background-color: var(--background-color);
+    h2{
+        font-size: 24px;
+    }
+
+    /*Home*/
+
+    #hero {
+        height: fit-content;
+        margin: 0px;
+        padding: 72px 8vw;
+    }
+
+    #hero-infos>div{
+        max-width: 100%;
+    }
+
+    .logo-anna{
+        word-break: no-break;
+    }
+
+    #badges{
+        max-width: 100%;
     }
 
     .footer {
@@ -693,11 +709,6 @@ hr {
 
     .wrapper-column {
         padding: 0;
-    }
-
-    #hero {
-        grid-template-columns: 1fr;
-        padding: 80px 10%;
     }
 
     #badges {
@@ -764,7 +775,7 @@ hr {
     }
 
     .timeline::before {
-        left: 28px;
+        left: 30px;
         font-size: 12px;
     }
 
