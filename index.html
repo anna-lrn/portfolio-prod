@@ -10,8 +10,6 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
-    <script src="p5.js"></script> -->
     <script src="script.js"></script>
 
 </head>
@@ -23,21 +21,21 @@
         </a>
         <div id="menu">
             <!-- <a href="#projets"><button class="close-button">Projets</button></a> -->
-            <a href="#" id="aproposBTN" onclick="openAPropos()">A propos</a>
-            <a href="mentions-legales.html" class="desktop">Mentions Légales</a>
+            <a id="aproposBTN" onclick="openAPropos()">A propos</a>
         </div>
     </div>
 
     <div id="hero">
         <div id="hero-infos">
-            <h1 id="title">Salut, <span class="nowrap">je suis <span class="underline">Anna</span>,</span> <br><span class="color">Product
+            <h1>Salut, <span class="nowrap">je suis <span class="underline">Anna</span>,</span> <br><span
+                    class="color">Product
                     Desginer</span> <span class="nowrap">depuis 3 ans.</span></h1>
             <div>
                 <p>J’ai l’habitude de designer des logiciels <span class="bold">SaaS B2B</span> dans différentes
                     start-ups <span class="nowrap">au début de&nbspleur aventure.</span>
                 </p>
-                <p>J’aide aussi de petites entreprises, principalement dans l'artisannat et l'art, à créer <span class="bold">leur premier site web</span> avec des outils <span
-                            class="bold">no-code.</span></p>
+                <p>J’aide aussi de petites entreprises, principalement dans l'artisannat et l'art, à créer <span
+                        class="bold">leur premier site web</span> avec des outils <span class="bold">no-code.</span></p>
             </div>
             <ul id="badges">
                 <li>Maquettes haute fidélité</li>
@@ -61,29 +59,83 @@
     </div>
 
     <div id="apropos">
-        <div class="part1">
-            <div class="header">
-                <h2>A propos</h2>
-                <button class="close-button" id="aproposCloseBTN" onclick="closeAPropos()">X</button>
-            </div>
-            <p>Autonome et rigoureuse, j’ai un fort intérêt pour la tech, surtout quand elle est responsable et engagée.
-            </p>
-            <p>Les process métier complexes ne me font pas peur et je travaille main dans la main avec les développeurs.
-            </p>
-            <p>J’ai évolué principalement en tant que seule designer dans des start-up early stage/pre-PMF en B2B
-                (coopérative de données, app pour objet connecté, SaaS industriel). Cela m'a permis de collaborer en
-                lien étroit avec des équipes très variées.</p>
-            <img src="tele.jpg" alt="">
-            <div class="spacer"></div>
-            <h3>Experiences</h3>
-            <div id="experiences" class="blocTimeline"></div>
-            <div class="spacer"></div>
-            <h3>Formations</h3>
-            <div id="formations" class="blocTimeline"></div>
-        </div>
+        <h2>A propos</h2>
+        <button class="close-button" id="aproposCloseBTN" onclick="closeAPropos()">X</button>
 
+        <p>Autonome et rigoureuse, j’ai un fort intérêt pour la tech, surtout quand elle est responsable et engagée.
+        </p>
+        <p>Les process métier complexes ne me font pas peur et je travaille main dans la main avec les développeurs.
+        </p>
+        <p>J’ai évolué principalement en tant que seule designer dans des start-up early stage/pre-PMF en B2B
+            (coopérative de données, app pour objet connecté, SaaS industriel). Cela m'a permis de collaborer en
+            lien étroit avec des équipes très variées.</p>
+        <img src="tele.jpg" alt="">
+        <h3>Experiences</h3>
+        <div id="experiences" class="blocTimeline"></div>
+        <h3>Formations</h3>
+        <div id="formations" class="blocTimeline"></div>
     </div>
-    <div id="aproposOverlay" onclick="closeAPropos()" style="display: none;"></div>
+    <div id="aproposOverlay" class="overlay" onclick="closeAPropos()" style="display: none;"></div>
+
+    <div id="projets">
+        <div class="title">
+            <h2><span class="color">#</span> Projets</h2>
+            <p>Sélection de travaux : en tant que designer intégrée ou freelance. Pour voir plus de projets, c’est par
+                ici.</p>
+        </div>
+        <div id="liste-projets"></div>
+    </div>
+
+    <div id="p-details" style="display: none;">
+        <div class="p-header">
+            <div class="header">
+                <div class="p-header-title">
+                    <h3 id="p-title"></h3>
+                    <div class="p-sous-titre">
+                        <p id="p-category"></p>
+                        <p class="color bold">-</p>
+                        <p id="p-date"></p>
+                    </div>
+                </div>
+                <a href="#projets"><button class="close-button" id="close-button">X</button></a>
+            </div>
+            <img id="p-fi" alt="">
+            <div id="p-text">
+                <div>
+                    <h4><span class="color">#</span> Contexte</h4>
+                    <p id="p-context"></p>
+                </div>
+                <div>
+                    <h4><span class="color">#</span> Challenge</h4>
+                    <p id="p-challenge"></p>
+                </div>
+                <div>
+                    <h4><span class="color">#</span> Actions</h4>
+                    <p id="p-actions"></p>
+                </div>
+            </div>
+        </div>
+        <div id="p-images">
+
+        </div>
+    </div>
+    <div id="p-overlay" class="overlay" onclick="closeProjet()" style="display: none;"></div>
+
+    <div class="footer">
+        <a class="logo-anna nowrap" href="index.html">
+            <span class="color"><</span> Anna Larnicol <span class="color">></span>
+        </a>
+        <ul class="badges">
+            <a class="lien" onclick="openAPropos()">A propos</a>
+            <a class="lien" href="mentions-legales.html" class="desktop">Mentions Légales</a>
+            <a href="https://www.linkedin.com/in/anna-larnicol/" target="_blank" class="lien"><img src="linkedin.png"
+                    alt="Linkedin" class="logo"></a>
+            <a href="https://dribbble.com/Anna_Larnicol" target="_blank" class="lien"><img src="dribbble.png"
+                    alt="Dribbble" class="logo"></a>
+            <a href="https://www.figma.com/@anna_larnicol" target="_blank" class="lien"><img src="figma.png" alt="Figma"
+                    class="logo"></a>
+        </ul>
+    </div>
 
 </body>
 

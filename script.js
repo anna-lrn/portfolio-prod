@@ -1,11 +1,3 @@
-function toggleMode() {
-  document.body.classList.toggle('dark-mode');
-  var logos = document.querySelectorAll('.logo');
-  logos.forEach(function (logo) {
-    logo.classList.toggle('invert');
-  });
-}
-
 function openAPropos() {
   var apropos = document.getElementById("apropos");
   var aproposOverlay = document.getElementById("aproposOverlay");
@@ -58,43 +50,123 @@ document.addEventListener("DOMContentLoaded", function () {
   xhr.send();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  var maxRotation = 3; // Définir la valeur maximale de rotation
+//afficher les projets
 
-  // Sélectionner tous les éléments <li> dans la liste
+document.addEventListener("DOMContentLoaded", function () {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "projects.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var projects = JSON.parse(xhr.responseText);
+      var projectList = document.getElementById("liste-projets");
+
+      projects.forEach(function (project) {
+        var projectElement = document.createElement("div");
+        projectElement.classList.add("projet");
+        projectElement.classList.add("projet");
+        var tagsList = "<ul>";
+        project.tags.forEach(function (tag) {
+          tagsList += "<li>" + tag + "</li>";
+        });
+        tagsList += "</ul>";
+        projectElement.innerHTML = "<div class=\"imgContainer\"><img src=\"covers/" + project.cover + "\" alt=\"\"></div><h3>" + project.title + "</h3>" + tagsList;
+        projectElement.addEventListener("click", function () {
+          displayProjectDetails(project);
+        });
+        projectList.appendChild(projectElement);
+      });
+    }
+  };
+  xhr.send();
+});
+
+//ouvrir un projet
+
+function displayProjectDetails(project) {
+  var pdetails = document.getElementById("p-details");
+  var poverlay = document.getElementById("p-overlay");
+  var ptitle = document.getElementById("p-title");
+  var pcategory = document.getElementById("p-category");
+  var pdate = document.getElementById("p-date");
+  var pcontext = document.getElementById("p-context");
+  var pchallenge = document.getElementById("p-challenge");
+  var pactions = document.getElementById("p-actions");
+  var closeButton = document.getElementById("close-button");
+  var pfi = document.getElementById("p-fi");
+  var pimages = document.getElementById("p-images");
+
+
+  ptitle.textContent = project.title;
+  pcategory.textContent = project.category;
+  pdate.textContent = project.date;
+  pfi.setAttribute("src", "imgProjet/fi-" + project.cover);
+  pcontext.innerHTML = project.context;
+  pchallenge.innerHTML = project.challenge;
+  pactions.innerHTML = project.actions;
+
+  pimages.innerHTML = "";
+  project.images.forEach(function(image) {
+      var imgContainer = document.createElement("div");
+      imgContainer.classList.add("p-image-container");
+
+      var img = document.createElement("img");
+      img.setAttribute("src", "imgProjet/" + image);
+      img.setAttribute("alt", "Project Image");
+
+      imgContainer.appendChild(img);
+
+      // Ajouter une description sous l'image si elle est disponible dans le projet
+      if (project.imageDescriptions && project.imageDescriptions[image]) {
+          var imgDescription = document.createElement("p");
+          imgDescription.textContent = project.imageDescriptions[image];
+          imgContainer.appendChild(imgDescription);
+      }
+
+      pimages.appendChild(imgContainer);
+  });
+
+  pdetails.style.display = "block";
+  poverlay.style.display = "block";
+
+  closeButton.addEventListener("click", closeProject);
+  poverlay.addEventListener("click", closeProject);
+}
+
+function closeProject() {
+  var pdetails = document.getElementById("p-details");
+  var poverlay = document.getElementById("p-overlay");
+  pdetails.style.display = "none";
+  poverlay.style.display = "none";
+}
+
+
+//faire bouger les badges
+
+document.addEventListener("DOMContentLoaded", function () {
+  var maxRotation = 3;
   var listItems = document.querySelectorAll('#badges *');
 
-  // Appliquer une rotation initiale à chaque élément <li>
-  // listItems.forEach(function (item) {
-  //   applyRotation(item);
-  // });
-
-  // Ajouter un gestionnaire d'événements à chaque survol
   listItems.forEach(function (item) {
     item.addEventListener("mouseover", function () {
-      applyRotation(item); // Appliquer une nouvelle rotation au survol
+      applyRotation(item);
     });
   });
 
-  // Fonction pour appliquer une rotation à un élément
   function applyRotation(element) {
-    // Calculer une rotation aléatoire entre -5 et 5 degrés
     var rotation = Math.random() * (2 * maxRotation) - maxRotation;
-
-    // Appliquer la rotation à l'élément
     element.style.transform = "rotate(" + rotation + "deg)";
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var navbar = document.getElementById('nav');
 
-  window.addEventListener('scroll', function() {
-      if (window.scrollY > 0) {
-          navbar.classList.add('navbar-scrolled');
-      } else {
-          navbar.classList.remove('navbar-scrolled');
-      }
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
   });
 });
 

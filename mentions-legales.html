@@ -4,25 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales</title>
+    <title>Anna Laricol // Mentions Légales</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body>
     <div id="nav">
-        <a class="logo-anna" href="index.html">
+        <a class="logo-anna nowrap" href="index.html">
             <span class="color"><</span> Anna Larnicol <span class="color">></span>
         </a>
         <div id="menu">
-            <!-- <a href="#projets"><button class="close-button">Projets</button></a> -->
-            <a href="#" id="aproposBTN" onclick="openAPropos()">A propos</a>
-            <a href="mentions-legales.html">Mentions Légales</a>
+            <a id="aproposBTN" onclick="openAPropos()">A propos</a>
         </div>
     </div>
 
-    <div class="wrapper-column" style="gap:32px; margin: 80px;">
+    <div style="display:flex; flex-direction:column;gap:32px; margin: 80px;">
         <h1>Mentions Légales</h1>
         <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il
             est précisé aux utilisateurs du site Anna Larnicol l'identité des différents intervenants dans le cadre de sa
@@ -41,8 +42,41 @@
         <h2>Nous contacter </h2>
         <p>Par email : contact@annalarnicol.com</p>
     </div>
+
+    <div id="apropos">
+        <h2>A propos</h2>
+        <button class="close-button" id="aproposCloseBTN" onclick="closeAPropos()">X</button>
+
+        <p>Autonome et rigoureuse, j’ai un fort intérêt pour la tech, surtout quand elle est responsable et engagée.
+        </p>
+        <p>Les process métier complexes ne me font pas peur et je travaille main dans la main avec les développeurs.
+        </p>
+        <p>J’ai évolué principalement en tant que seule designer dans des start-up early stage/pre-PMF en B2B
+            (coopérative de données, app pour objet connecté, SaaS industriel). Cela m'a permis de collaborer en
+            lien étroit avec des équipes très variées.</p>
+        <img src="tele.jpg" alt="">
+        <h3>Experiences</h3>
+        <div id="experiences" class="blocTimeline"></div>
+        <h3>Formations</h3>
+        <div id="formations" class="blocTimeline"></div>
+    </div>
+    <div id="aproposOverlay" class="overlay" onclick="closeAPropos()" style="display: none;"></div>
     
-    <div class="footer">© 2024 - <div id="wcb" class="carbonbadge"></div>
+    <div class="footer">
+        <a class="logo-anna nowrap" href="index.html">
+            <span class="color"><</span> Anna Larnicol <span class="color">></span>
+        </a>
+        <ul class="badges">
+            <a class="lien" onclick="openAPropos()">A propos</a>
+            <a class="lien" href="mentions-legales.html" class="desktop">Mentions Légales</a>
+            <a href="https://www.linkedin.com/in/anna-larnicol/" target="_blank" class="lien"><img
+                src="linkedin.png" alt="Linkedin" class="logo"></a>
+        <a href="https://dribbble.com/Anna_Larnicol" target="_blank" class="lien"><img src="dribbble.png"
+                alt="Dribbble" class="logo"></a>
+        <a href="https://www.figma.com/@anna_larnicol" target="_blank" class="lien"><img src="figma.png"
+                alt="Figma" class="logo"></a>
+        </ul>
+    </div>
 </body>
 
 </html>
