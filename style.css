@@ -328,6 +328,35 @@ h3,h4 {
     gap: 24px;
 }
 
+#competences{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+}
+
+#competences > h4{
+    font-size: 16px;
+    word-break: no-break;
+    padding-right: 16px;
+    border-top: 1.5px solid var(--stroke-color);
+    padding-top: 16px;
+}
+
+#competences > p {
+    border-top: 1.5px solid var(--stroke-color);
+    margin-bottom: 16px;
+    padding-top: 16px;
+}
+
+.softskills{
+    grid-column: span 2;
+    padding: 16px;
+    border: 1.5px solid var(--stroke-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    margin-top: 16px;
+}
 
 
 .timeline{
@@ -382,6 +411,10 @@ h3,h4 {
     content: "//";
     padding-right: 4px;
     font-weight: 300;
+}
+
+#apropos > ul{
+    margin-left: 24px;
 }
 
 .close-button {
@@ -772,17 +805,24 @@ h3,h4 {
         border-radius: 8px;
     }
 
-    #apropos > img{
-        margin: 0px 0;
-    }
-
-    .timeline::before {
-        left: 30px;
-        font-size: 12px;
-    }
-
-    .timeline {
+    .xp-header{
         flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    #apropos > img {
+        width: 100%;
+        margin: 0;
+    }
+
+    #competences > h4{
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    #competences{
+        grid-template-columns: 33% 1fr !important;
     }
 
     #aproposCloseBTN{
