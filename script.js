@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       xps.forEach(function (xp) {
         var xpItem = document.createElement("div");
         xpItem.classList.add("timeline");
-        xpItem.innerHTML = "<img src=\"" + xp.img + "\" alt=\"\"><div class=\"timelineText\"><p class=\"bold\">" + xp.poste + "</p><p>" + xp.date + "</p><p>" + xp.desc + "</p></div>";
+        xpItem.innerHTML = "<div class=\"xp-header\"><img src=\""+xp.img+"\"><div><p class=\"xp-date\">" + xp.date + "</p><p class=\"xp-poste\">" + xp.poste +" </p><p class=\"xp-entreprise\"> "+ xp.entreprise +" </p></div></div><p> " + xp.desc + " </p><div class=\"xp-note\"> " + xp.note + " </div>";
         xpList.appendChild(xpItem);
       });
     }
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       forms.forEach(function (form) {
         var formItem = document.createElement("div");
         formItem.classList.add("timeline");
-        formItem.innerHTML = "<img src=\"" + form.img + "\" alt=\"\"><div class=\"timelineText\"><p class=\"bold\">" + form.nom + "</p><p>" + form.lieu + "</p><p>" + form.date + "</p><p>" + form.desc + "</p></div>";
+        formItem.innerHTML = "<div class=\"xp-header\"><img src=\""+form.img+"\"><div><p class=\"xp-date\">" + form.type + "</p><p class=\"xp-poste\">" + form.nom +" </p><p class=\"xp-entreprise\"> "+ form.lieu +" </p></div></div><p> " + form.desc + " </p><div class=\"xp-note\"> " + form.date + " </div>";
         formList.appendChild(formItem);
       });
     }
